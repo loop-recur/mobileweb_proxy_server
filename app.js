@@ -36,7 +36,7 @@ app.configure('production', function(){
 });
 
 app.get('/:proxy_url', function(req, res) {
-	requester.get(req.params['proxy_url'], {}, function(resp){
+	requester.get(req.params['proxy_url'], function(resp){
 		res.send(resp);
 	});
 });

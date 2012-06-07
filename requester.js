@@ -3,12 +3,13 @@ var http = require("http")
 	, querystring = require("querystring");
 
 
-get = function(str, params, cb) {
+get = function(str, cb) {
 	var site = url.parse(str)
 		, connection = http.createClient(80, site.host)
-		, query = querystring.stringify(params)
-		, path = site.pathname + "?" + query
-		, request = connection.request("GET", path, {'host' : site.host})
+		, path = site.pathname;
+		
+		if(site.query) path += "?" + site.query;
+		var request = connection.request("GET", path, {'host' : site.host})
 		
 
 		request.on('response', function(response){
