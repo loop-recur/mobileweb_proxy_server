@@ -42,7 +42,7 @@ app.get('/:proxy_url', function(req, res) {
 });
 
 if (!module.parent) {	
-	var port = process.env.PORT || 4000;
+	var port = process.env.PORT || 4001;
   app.listen(port);
 	console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 }
