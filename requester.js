@@ -4,8 +4,9 @@ var http = require("http")
 
 
 get = function(str, cb) {
+	console.log(str);
 	var site = url.parse(str)
-		, connection = http.createClient(80, site.host)
+		, connection = http.createClient((site.port || 80), site.hostname)
 		, path = site.pathname;
 		
 		if(site.query) path += "?" + site.query;
