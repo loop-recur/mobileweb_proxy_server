@@ -41,6 +41,13 @@ app.get('/:proxy_url', function(req, res) {
 	});
 });
 
+app.post('/:proxy_url', function(req, res) {
+	requester.post(req.params['proxy_url'], req.body, function(resp){
+		res.send(resp);
+	});
+});
+
+
 if (!module.parent) {	
 	var port = process.env.PORT || 4001;
   app.listen(port);
