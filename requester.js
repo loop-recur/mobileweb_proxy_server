@@ -3,11 +3,13 @@ var http = require("http")
 	, querystring = require("querystring");
 
 
-get = function(str, cb) {
+get = function(str, headers, cb) {
 	console.log(str);
 	var site = url.parse(str)
 		, connection = http.createClient((site.port || 80), site.hostname)
 		, path = site.pathname;
+		
+		console.log(headers);
 		
 		if(site.query) path += "?" + site.query;
 		var request = connection.request("GET", path, {'host' : site.host})
@@ -27,7 +29,8 @@ get = function(str, cb) {
 		request.end();
 };
 
-post = function(str, params, cb) {
+post = function(str, params, headers, cb) {
+  console.log(str);
 	var site = url.parse(str);
 	  var newOnes = JSON.stringify(params);
 	  params = JSON.parse(newOnes).json;

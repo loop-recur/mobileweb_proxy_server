@@ -36,13 +36,13 @@ app.configure('production', function(){
 });
 
 app.get('/:proxy_url', function(req, res) {
-	requester.get(req.params['proxy_url'], function(resp){
+	requester.get(req.params['proxy_url'], req.headers, function(resp){
 		res.send(resp);
 	});
 });
 
 app.post('/:proxy_url', function(req, res) {
-	requester.post(req.params['proxy_url'], req.body, function(resp){
+	requester.post(req.params['proxy_url'], req.body, req.headers, function(resp){
 		res.send(resp);
 	});
 });
