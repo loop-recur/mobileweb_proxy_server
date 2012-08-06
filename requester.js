@@ -30,7 +30,7 @@ get = function(str, headers, cb) {
 		var get_options = {  
 		  host: site.host,  
 		  port: site.default_port,
-		  path: site.pathname,  
+		  path: path,
 		  method: 'GET'
 		};
 
