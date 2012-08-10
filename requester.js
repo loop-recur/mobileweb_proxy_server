@@ -57,6 +57,8 @@ post = function(str, params, headers, cb) {
 	var newOnes = JSON.stringify(params);
 			params = JSON.parse(newOnes).json;
 		
+		console.log(params);
+		
 		var post_options = {  
 		  host: site.host,  
 		  port: site.default_port,
